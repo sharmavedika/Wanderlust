@@ -1,4 +1,3 @@
-import { MAP_TOKEN } from "../api/axiosInstance";
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
@@ -6,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 
 // ⚠️ ADD THIS (you forgot import)
 import mapboxgl from "mapbox-gl";
+mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
 export default function ListingShow() {
     const { id } = useParams();
@@ -39,20 +39,18 @@ export default function ListingShow() {
     }, [id]);
 
     // ✅ MAP (SAFE INIT)
-    useEffect(() => {
-        if (!listing?.geometry?.coordinates || !mapRef.current) return;
+   useEffect(() => {
+    if (!listing?.geometry?.coordinates || !mapRef.current) return;
 
-        mapboxgl.accessToken = MAP_TOKEN;
-
-        const map = new mapboxgl.Map({
-            container: mapRef.current,
-            style: "mapbox://styles/mapbox/streets-v12",
-            center: [
-                listing.geometry.coordinates[0],
-                listing.geometry.coordinates[1]
-            ],
-            zoom: 9,
-        });
+    const map = new mapboxgl.Map({
+        container: mapRef.current,
+        style: "mapbox://styles/mapbox/streets-v12",
+        center: [
+            listing.geometry.coordinates[0],
+            listing.geometry.coordinates[1],
+        ],
+        zoom: 9,
+    });
 
         new mapboxgl.Marker()
             .setLngLat([
