@@ -688,53 +688,128 @@ html, body {
   outline-offset: 2px;
 }
 
-#filters {
-    padding: 0 2rem;
+
+
+
+/* ================= FILTERS CONTAINER ================= */
+
+#filters-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-.filters-row {
+/* ================= FILTERS ROW ================= */
+
+#filters {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    flex: 1;
+
     white-space: nowrap;
+
     scrollbar-width: none;
 }
 
-.filters-row::-webkit-scrollbar {
+#filters::-webkit-scrollbar {
     display: none;
 }
 
+/* ================= SINGLE FILTER ================= */
+
 .filter {
-    min-width: 80px;
+    text-align: center;
+
     color: #717171;
-    opacity: 0.8;
+
+    min-width: 80px;
+
     transition: all 0.2s ease;
 }
 
-.filter:hover {
-    opacity: 1;
-    color: black;
-}
-
 .filter i {
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.3rem;
 }
 
 .filter p {
-    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+
+    font-size: 0.9rem;
 }
+
+/* Hover */
+
+.filter:hover {
+    color: black;
+}
+
+/* Active Category */
 
 .active-filter {
     color: #fe424d !important;
-    opacity: 1;
-    border-bottom: 2px solid #fe424d;
-    padding-bottom: 0.3rem;
 }
 
+/* ================= TAX TOGGLE ================= */
+
 .tax-toggle {
-    border: 1px solid #ddd;
-    border-radius: 999px;
+    border: 1px solid #dddddd;
+
+    border-radius: 2rem;
+
     padding: 0.8rem 1rem;
+
     white-space: nowrap;
-    background: white;
+
+    flex-shrink: 0;
+}
+
+/* ================= LISTING CARD ================= */
+
+.listing-card {
+    border: none !important;
+
+    transition: transform 0.2s ease;
+}
+
+.listing-card:hover {
+    transform: scale(1.02);
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+}
+
+.card-body {
+    padding-left: 0 !important;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+
+    #filters-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tax-toggle {
+        width: 100%;
+    }
+
 }
 
 
