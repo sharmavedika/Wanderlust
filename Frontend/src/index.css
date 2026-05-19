@@ -1416,6 +1416,24 @@ html, body {
   }
 }
 
+/* LOGIN BUTTON */
+.login-btn {
+    width: 100%;
+    background-color: #198754 !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 5px;
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #157347 !important;
+}
+
 
 
 
