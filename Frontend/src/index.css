@@ -965,6 +965,42 @@ html, body {
   }
 }
 
+@media (max-width: 768px) {
+
+  .custom-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .nav-right {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+}
+
 
 
 
