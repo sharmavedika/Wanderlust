@@ -1001,6 +1001,91 @@ html, body {
 
 }
 
+/* NAVBAR */
+.navbar {
+  background-color: white;
+  z-index: 1000;
+}
+
+/* SEARCH */
+.search-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* AUTH LINKS */
+.auth-links a,
+.auth-links button {
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+/* HOVER EFFECT */
+.hover-shadow:hover {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 8px !important;
+  }
+
+  .search-container {
+    max-width: 150px;
+  }
+
+  .search-container input {
+    font-size: 12px;
+  }
+
+  .auth-links {
+    display: flex !important;
+    gap: 6px;
+  }
+
+  .auth-links a,
+  .auth-links button {
+    font-size: 11px;
+  }
+
+  .navbar-brand i {
+    font-size: 1.4rem !important;
+  }
+
+  .rounded-pill {
+    padding: 4px 8px !important;
+  }
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+
+  .search-container {
+    max-width: 120px;
+  }
+
+  .search-container input::placeholder {
+    font-size: 10px;
+  }
+
+  .auth-links a,
+  .auth-links button {
+    font-size: 10px;
+  }
+
+  .fa-bars {
+    font-size: 12px;
+  }
+
+  .bg-secondary.rounded-circle {
+    width: 26px !important;
+    height: 26px !important;
+  }
+}
+
 
 
 
