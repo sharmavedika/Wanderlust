@@ -812,6 +812,84 @@ html, body {
 
 }
 
+/* ================= MOBILE VIEW FIX ================= */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .custom-nav {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
+
+  .nav-actions {
+    justify-content: space-between;
+  }
+
+  /* FILTER SECTION */
+  #filters-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  #filters {
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .filter {
+    min-width: 70px;
+    flex-shrink: 0;
+  }
+
+  .filter i {
+    font-size: 1rem;
+  }
+
+  .filter p {
+    font-size: 0.7rem;
+  }
+
+  .tax-toggle {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* LISTING CARDS */
+  .listing-card {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .card-img-top {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  /* IMPORTANT */
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .col {
+    width: 100% !important;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 20px 10px;
+  }
+}
+
 
 
 
