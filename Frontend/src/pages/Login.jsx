@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 import { useAuth } from "../context/AuthContext";
-import "./Login.css";
 
 export default function Login() {
     const [form, setForm] = useState({
