@@ -1403,6 +1403,19 @@ html, body {
     }
 }
 
+/* HOST LINK */
+.host-mobile-link {
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+
+  .host-mobile-link {
+    font-size: 11px;
+  }
+}
+
 
 
 

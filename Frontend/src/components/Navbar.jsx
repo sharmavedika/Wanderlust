@@ -72,10 +72,10 @@ export default function Navbar() {
 
                         {/* Hide on mobile */}
                         <Link
-                            className="nav-link fw-semibold small d-none d-md-block"
+                            className="nav-link fw-semibold small host-mobile-link"
                             to="/listings/new"
                         >
-                            Wanderlust your home
+                            Host with Wanderlust
                         </Link>
 
                         {/* PROFILE BOX */}
