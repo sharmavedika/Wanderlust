@@ -28,13 +28,12 @@ mongoose.connect(dbUrl)
     .catch((err) => console.log("Mongo Error ❌", err));
 
 // ================= MIDDLEWARE =================
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://wanderlust-red-six.vercel.app"
-  ],
-  credentials: true
-}));
+app.use(
+    cors({
+        origin: "https://wanderlust-red-six.vercel.app",
+        credentials: true,
+    })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -49,14 +48,20 @@ store.on("error", (err) => {
     console.log("Session Store Error ❌", err);
 });
 
+app.set("trust proxy", 1);
+
 app.use(session({
     store,
     secret: process.env.SECRET || "secret123",
     resave: false,
     saveUninitialized: false,
+
     cookie: {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
+
+        secure: true,
+        sameSite: "none",
     },
 }));
 
