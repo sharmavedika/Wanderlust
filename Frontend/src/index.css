@@ -688,6 +688,55 @@ html, body {
   outline-offset: 2px;
 }
 
+#filters {
+    padding: 0 2rem;
+}
+
+.filters-row {
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.filters-row::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    min-width: 80px;
+    color: #717171;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.filter:hover {
+    opacity: 1;
+    color: black;
+}
+
+.filter i {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.filter p {
+    font-size: 0.85rem;
+}
+
+.active-filter {
+    color: #fe424d !important;
+    opacity: 1;
+    border-bottom: 2px solid #fe424d;
+    padding-bottom: 0.3rem;
+}
+
+.tax-toggle {
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 0.8rem 1rem;
+    white-space: nowrap;
+    background: white;
+}
+
 
 
 
