@@ -3,28 +3,28 @@ import { Link, useLocation } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 
 const categories = [
-    { name: "Trending",      value: "trending",     icon: "fa-solid fa-fire" },
-    { name: "Rooms",         value: "rooms",         icon: "fa-solid fa-bed" },
+    { name: "Trending", value: "trending", icon: "fa-solid fa-fire" },
+    { name: "Rooms", value: "rooms", icon: "fa-solid fa-bed" },
     { name: "Iconic Cities", value: "iconic-cities", icon: "fa-solid fa-city" },
-    { name: "Mountains",     value: "mountains",     icon: "fa-solid fa-mountain" },
-    { name: "Castles",       value: "castles",       icon: "fa-brands fa-fort-awesome" },
-    { name: "Amazing Pools", value: "pools",         icon: "fa-solid fa-person-swimming" },
-    { name: "Camping",       value: "camping",       icon: "fa-solid fa-campground" },
-    { name: "Farms",         value: "farms",         icon: "fa-solid fa-cow" },
-    { name: "Arctic",        value: "arctic",        icon: "fa-solid fa-snowman" },
-    { name: "Domes",         value: "domes",         icon: "fa-solid fa-landmark-dome" },
+    { name: "Mountains", value: "mountains", icon: "fa-solid fa-mountain" },
+    { name: "Castles", value: "castles", icon: "fa-brands fa-fort-awesome" },
+    { name: "Amazing Pools", value: "pools", icon: "fa-solid fa-person-swimming" },
+    { name: "Camping", value: "camping", icon: "fa-solid fa-campground" },
+    { name: "Farms", value: "farms", icon: "fa-solid fa-cow" },
+    { name: "Arctic", value: "arctic", icon: "fa-solid fa-snowman" },
+    { name: "Domes", value: "domes", icon: "fa-solid fa-landmark-dome" },
 ];
 
 export default function Home() {
-    const [listings, setListings]       = useState([]);
-    const [showTax, setShowTax]         = useState(false);
+    const [listings, setListings] = useState([]);
+    const [showTax, setShowTax] = useState(false);
     const [activeCategory, setActiveCategory] = useState("trending");
     const location = useLocation();
 
     useEffect(() => {
-        const params   = new URLSearchParams(location.search);
+        const params = new URLSearchParams(location.search);
         const category = params.get("category") || "trending";
-        const search   = params.get("search")   || "";
+        const search = params.get("search") || "";
 
         setActiveCategory(category);
 
@@ -39,27 +39,27 @@ export default function Home() {
 
     return (
         <>
-            {/* ── Filters bar ── */}
-            <div id="filters" className="filters-wrapper mt-3">
+            {/* Filters */}
+            <div id="filters" className="mt-3 d-flex align-items-center">
 
-                {/* Horizontally scrollable category row */}
-                <div className="filters-row">
+                {/* Filters row */}
+                <div className="filters-row d-flex justify-content-between flex-grow-1">
+
                     {categories.map((cat) => (
                         <Link
                             to={`/?category=${cat.value}`}
                             key={cat.value}
-                            className={`filter text-center text-decoration-none ${
-                                activeCategory === cat.value ? "active-filter" : ""
-                            }`}
+                            className={`filter text-center text-decoration-none ${activeCategory === cat.value ? "active-filter" : ""}`}
                         >
                             <div><i className={cat.icon}></i></div>
                             <p>{cat.name}</p>
                         </Link>
                     ))}
+
                 </div>
 
-                {/* Tax toggle — sits below the row on mobile, inline on desktop */}
-                <div className={`tax-toggle ${showTax ? "active" : ""}`}>
+                {/* Tax toggle */}
+                <div className={`tax-toggle ms-3 ${showTax ? "active" : ""}`}>
                     <div className="form-check form-switch mb-0 d-flex align-items-center">
                         <input
                             className="form-check-input me-2"
@@ -77,7 +77,7 @@ export default function Home() {
 
             </div>
 
-            {/* ── Listings Grid ── */}
+            {/* Listings Grid */}
             <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4 mt-3 mb-5">
                 {listings.length === 0 && (
                     <p className="text-muted mt-3">No listings found.</p>
@@ -99,7 +99,9 @@ export default function Home() {
                                 <p className="card-text">
                                     <b>{listing.title}</b><br />
                                     &#8377;{listing.price?.toLocaleString("en-IN")} / night
-                                    {showTax && <i>&nbsp;&nbsp;+18% GST</i>}
+                                    {showTax && (
+                                        <i>&nbsp;&nbsp;+18% GST</i>
+                                    )}
                                 </p>
                             </div>
                         </div>
