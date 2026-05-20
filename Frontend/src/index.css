@@ -2166,60 +2166,52 @@ html, body {
 }
 
 /* ============================================================
-   FIX: Auth page full height + Footer centered row
+   FIX: Auth card spacing + Footer vertical (centered column)
    Append at the very bottom of index.css
    ============================================================ */
 
-/* ── AUTH PAGE: fill full viewport height ── */
-.auth-page {
-  min-height: calc(100vh - 57px) !important; /* 57px = navbar height */
-  display: flex !important;
-  align-items: stretch !important;
-}
-
-.auth-panel {
-  align-items: center;
-  min-height: 100%;
-}
-
+/* ── AUTH: add breathing room below the card ── */
 .auth-form-side {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
+  padding: 48px 32px 64px !important;  /* extra bottom padding */
+}
+
+@media (max-width: 640px) {
+  .auth-form-side {
+    padding: 32px 20px 60px !important;
+  }
 }
 
 
-/* ── FOOTER: single centered row on desktop ── */
+/* ── FOOTER: vertical centered column (your original style) ── */
 .footer {
-  background-color: #f8f9fa;
-  border-top: 1px solid #dee2e6;
-  padding: 14px 24px;
+  background-color: #f8f9fa !important;
+  border-top: 1px solid #dee2e6 !important;
+  padding: 15px 0 !important;
   margin-top: auto;
   width: 100%;
 }
 
 .f-info {
   display: flex !important;
-  flex-direction: row !important;       /* force horizontal */
+  flex-direction: column !important;   /* vertical stack */
   align-items: center !important;
   justify-content: center !important;
-  gap: 28px !important;
-  flex-wrap: nowrap !important;          /* no wrapping on desktop */
-  text-align: center;
+  gap: 8px !important;
+  text-align: center !important;
+  flex-wrap: nowrap !important;
 }
 
 .f-info-socials {
   display: flex;
-  gap: 14px;
+  gap: 15px;
   align-items: center;
 }
 
 .f-info-socials i {
-  font-size: 13px;
+  font-size: 14px;
   color: #495057;
-  transition: color 0.2s;
   cursor: pointer;
+  transition: color 0.2s;
 }
 
 .f-info-socials i:hover {
@@ -2248,7 +2240,7 @@ html, body {
 
 .f-info-links {
   display: flex !important;
-  flex-direction: row !important;       /* side by side */
+  flex-direction: row !important;      /* links side by side */
   gap: 16px !important;
   align-items: center;
 }
@@ -2258,26 +2250,11 @@ html, body {
   font-size: 11px;
   color: #6c757d;
   font-weight: 500;
-  white-space: nowrap;
 }
 
 .f-info-links a:hover {
   color: #ff385c;
   text-decoration: underline;
-}
-
-/* ── FOOTER mobile: stack neatly ── */
-@media (max-width: 540px) {
-  .f-info {
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    flex-direction: column !important;
-  }
-
-  .f-info-links {
-    flex-direction: row !important;
-    gap: 12px !important;
-  }
 }
 
 
