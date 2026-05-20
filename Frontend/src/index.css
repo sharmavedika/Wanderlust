@@ -2165,6 +2165,121 @@ html, body {
   }
 }
 
+/* ============================================================
+   FIX: Auth page full height + Footer centered row
+   Append at the very bottom of index.css
+   ============================================================ */
+
+/* ── AUTH PAGE: fill full viewport height ── */
+.auth-page {
+  min-height: calc(100vh - 57px) !important; /* 57px = navbar height */
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.auth-panel {
+  align-items: center;
+  min-height: 100%;
+}
+
+.auth-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+
+/* ── FOOTER: single centered row on desktop ── */
+.footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  padding: 14px 24px;
+  margin-top: auto;
+  width: 100%;
+}
+
+.f-info {
+  display: flex !important;
+  flex-direction: row !important;       /* force horizontal */
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 28px !important;
+  flex-wrap: nowrap !important;          /* no wrapping on desktop */
+  text-align: center;
+}
+
+.f-info-socials {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.f-info-socials i {
+  font-size: 13px;
+  color: #495057;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.f-info-socials i:hover {
+  color: #ff385c;
+}
+
+.f-brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.f-brand-name {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #212529;
+}
+
+.f-copyright {
+  font-size: 10px;
+  color: #6c757d;
+}
+
+.f-info-links {
+  display: flex !important;
+  flex-direction: row !important;       /* side by side */
+  gap: 16px !important;
+  align-items: center;
+}
+
+.f-info-links a {
+  text-decoration: none;
+  font-size: 11px;
+  color: #6c757d;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.f-info-links a:hover {
+  color: #ff385c;
+  text-decoration: underline;
+}
+
+/* ── FOOTER mobile: stack neatly ── */
+@media (max-width: 540px) {
+  .f-info {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    flex-direction: column !important;
+  }
+
+  .f-info-links {
+    flex-direction: row !important;
+    gap: 12px !important;
+  }
+}
+
 
 
 
