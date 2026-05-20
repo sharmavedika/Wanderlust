@@ -2607,6 +2607,25 @@ html, body {
   }
 }
 
+/* ============================================================
+   FIX: "Wanderlust your home" hide breakpoint
+   Append at the very bottom of index.css
+   ============================================================ */
+
+/* Only hide on phones, keep visible on tablet/desktop */
+@media (max-width: 640px) {
+  .wl-host-link {
+    display: none !important;
+  }
+}
+
+/* Make sure it's visible above 640px */
+@media (min-width: 641px) {
+  .wl-host-link {
+    display: inline-block !important;
+  }
+}
+
 
 
 
