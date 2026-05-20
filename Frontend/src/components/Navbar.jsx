@@ -13,6 +13,7 @@ export default function Navbar() {
         if (search.trim()) {
             navigate(`/?search=${search.trim()}`);
             setSearchOpen(false);
+            setSearch("");
         }
     };
 
@@ -44,7 +45,7 @@ export default function Navbar() {
                     {/* ── RIGHT SECTION ── */}
                     <div className="wl-nav-right">
 
-                        {/* Host link — hidden on mobile */}
+                        {/* Host link */}
                         <Link className="wl-host-link" to="/listings/new">
                             Wanderlust your home
                         </Link>
@@ -58,9 +59,8 @@ export default function Navbar() {
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
 
-                        {/* User pill */}
+                        {/* USER PILL — no hamburger */}
                         <div className="wl-user-pill">
-                            <i className="fa-solid fa-bars wl-hamburger"></i>
                             <div className="wl-avatar">
                                 <i className="fa-solid fa-user"></i>
                             </div>
@@ -82,7 +82,7 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            {/* ── MOBILE SEARCH DROPDOWN ── */}
+            {/* MOBILE SEARCH DROPDOWN */}
             {searchOpen && (
                 <div className="wl-mobile-search">
                     <form className="wl-mobile-search-form" onSubmit={handleSearch}>
