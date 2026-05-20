@@ -47,7 +47,7 @@ export default function Navbar() {
 
                         {/* Host link */}
                         <Link className="wl-host-link" to="/listings/new">
-                            Wanderlust your home
+                            Host
                         </Link>
 
                         {/* Search icon — mobile only */}

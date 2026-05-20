@@ -3054,6 +3054,166 @@ html, body {
 }
 
 
+/* ============================================================
+   NAVBAR FINAL FIX — paste at very bottom of index.css
+   Fixes: mobile avatar visible, Host link on mobile, no hamburger
+   ============================================================ */
+
+/* ── Kill hamburger everywhere, no exceptions ── */
+.wl-hamburger {
+  display: none !important;
+}
+
+/* ── DESKTOP pill (>640px) ── */
+.wl-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 30px;
+  padding: 5px 12px 5px 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.wl-user-pill:hover {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-color: #ccc;
+}
+
+/* Avatar: dark circle, always show on desktop */
+.wl-avatar {
+  width: 28px;
+  height: 28px;
+  background: #222;
+  color: #fff;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Auth links */
+.wl-auth-links {
+  display: flex;
+  align-items: center;
+}
+
+.wl-auth-btn {
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.wl-auth-btn:hover { color: #ff385c; }
+.wl-logout-btn { color: #ff385c !important; }
+
+.wl-auth-links a + a { border-left: 1.5px solid #ddd; }
+.wl-auth-links a + a::before { display: none !important; }
+
+/* Host link */
+.wl-host-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 22px;
+  white-space: nowrap;
+  transition: background 0.2s;
+  display: inline-block !important; /* always visible on desktop */
+}
+.wl-host-link:hover { background: #f7f7f7; color: #222; }
+
+/* Desktop: hide search icon, show search form */
+@media (min-width: 641px) {
+  .wl-search-icon-btn { display: none !important; }
+  .wl-search-form { display: flex !important; }
+}
+
+/* ── MOBILE (≤640px) ── */
+@media (max-width: 640px) {
+  .wl-nav-inner {
+    padding: 10px 14px !important;
+    gap: 8px !important;
+  }
+
+  /* Logo */
+  .wl-logo { font-size: 1.1rem !important; flex-shrink: 0; }
+  .wl-logo-text { display: inline !important; }
+
+  /* Hide desktop search, show icon */
+  .wl-search-form { display: none !important; }
+  .wl-search-icon-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    border: none;
+    color: #333;
+    font-size: 15px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .wl-search-icon-btn:hover { background: #ebebeb; }
+
+  /* Host link: show on mobile, smaller */
+  .wl-host-link {
+    display: inline-block !important;
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+  }
+
+  /* Mobile pill: dark border like desktop */
+  .wl-user-pill {
+    padding: 5px 12px !important;
+    gap: 8px !important;
+    border: 1.5px solid #222 !important;
+    border-radius: 30px !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+  .wl-user-pill:hover {
+    background: #f7f7f7 !important;
+  }
+
+  /* ✅ SHOW avatar on mobile (dark circle) */
+  .wl-avatar {
+    display: flex !important;
+    width: 26px !important;
+    height: 26px !important;
+    background: #222 !important;
+  }
+
+  .wl-auth-btn {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #222 !important;
+    padding: 0 7px !important;
+  }
+  .wl-auth-btn:hover { color: #ff385c !important; }
+  .wl-auth-links a + a { border-left: 1.5px solid #ddd !important; }
+}
+
+/* Very small phones: hide Host link only if truly no room */
+@media (max-width: 360px) {
+  .wl-host-link { display: none !important; }
+}
+
 
 
 
