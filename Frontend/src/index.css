@@ -2932,6 +2932,127 @@ html, body {
   }
 }
 
+/* ============================================================
+   FINAL NAVBAR FIX — paste at very bottom of index.css
+   ============================================================ */
+
+/* ── Show "Wanderlust your home" on ALL screen sizes ── */
+.wl-host-link {
+  display: inline-block !important;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 22px;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.wl-host-link:hover {
+  background: #f7f7f7;
+  color: #222;
+}
+
+/* On very small phones where there's truly no room, shorten it */
+@media (max-width: 400px) {
+  .wl-host-link {
+    font-size: 11px !important;
+    padding: 6px 8px !important;
+  }
+}
+
+/* ── Mobile pill: match desktop dark border style ── */
+@media (max-width: 640px) {
+  .wl-user-pill {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    border: 1.5px solid #222 !important;
+    border-radius: 30px !important;
+    padding: 7px 14px !important;
+    background: #fff !important;
+    cursor: pointer;
+    box-shadow: none !important;
+  }
+
+  .wl-user-pill:hover {
+    background: #f7f7f7 !important;
+    box-shadow: none !important;
+  }
+
+  /* Hide avatar on mobile */
+  .wl-avatar {
+    display: none !important;
+  }
+
+  /* Auth buttons */
+  .wl-auth-links {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .wl-auth-btn {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #222 !important;
+    padding: 0 10px !important;
+    background: none !important;
+    border: none !important;
+    text-decoration: none !important;
+  }
+
+  .wl-auth-btn:hover {
+    color: #ff385c !important;
+  }
+
+  /* Divider between Sign up and Log in */
+  .wl-auth-links a + a {
+    border-left: 1.5px solid #ddd !important;
+  }
+
+  .wl-auth-links a + a::before {
+    display: none !important;
+  }
+
+  /* Nav inner spacing */
+  .wl-nav-inner {
+    padding: 10px 12px !important;
+    gap: 6px !important;
+  }
+
+  /* Logo */
+  .wl-logo {
+    font-size: 1.1rem !important;
+    flex-shrink: 0;
+  }
+
+  .wl-logo-text {
+    display: inline !important;
+  }
+
+  /* Search icon button */
+  .wl-search-icon-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    background: #f5f5f5 !important;
+    border: none !important;
+    color: #333 !important;
+    font-size: 14px !important;
+    flex-shrink: 0 !important;
+    cursor: pointer !important;
+  }
+
+  /* Hide desktop search form on mobile */
+  .wl-search-form {
+    display: none !important;
+  }
+}
+
 
 
 
