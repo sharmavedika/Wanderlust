@@ -1434,6 +1434,123 @@ html, body {
     background-color: #157347 !important;
 }
 
+/* ============================================================
+   MOBILE NAVBAR + TAX TOGGLE FIX
+   Add at the very bottom of your index.css
+   ============================================================ */
+
+/* ── TABLET (≤ 900px) ── */
+@media (max-width: 900px) {
+  .custom-nav {
+    width: 96%;
+    gap: 8px;
+  }
+
+  /* Shrink search box */
+  .search-box {
+    max-width: 240px;
+  }
+
+  /* Hide "Wanderlust your home" host link */
+  .host-btn {
+    display: none;
+  }
+}
+
+/* ── MOBILE (≤ 640px) ── */
+@media (max-width: 640px) {
+  .nav-wrapper {
+    padding: 10px 0;
+  }
+
+  .custom-nav {
+    width: 94%;
+    gap: 6px;
+  }
+
+  /* Logo: keep icon + text but smaller */
+  .logo {
+    font-size: 1.1rem;
+    gap: 5px;
+  }
+
+  /* Hide the full search box — show only the red button */
+  .search-box {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    max-width: unset;
+    width: auto;
+  }
+
+  .search-box input {
+    display: none;               /* hide text input on mobile */
+  }
+
+  .search-box button {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Tighten nav actions */
+  .nav-actions {
+    gap: 8px;
+  }
+
+  /* Sign up / Log in: smaller text */
+  .nav-actions a {
+    font-size: 13px;
+  }
+
+  /* User pill: tighter */
+  .login-btn {
+    gap: 8px;
+    padding: 4px 4px 4px 10px;
+  }
+}
+
+/* ── SMALL PHONES (≤ 400px) ── */
+@media (max-width: 400px) {
+  /* Hide Sign up, keep only Log in */
+  .nav-actions a:first-child {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+}
+
+
+/* ── TAX TOGGLE: never stretch full width ── */
+.tax-toggle {
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: #fff;
+  flex-shrink: 0;
+  width: auto !important;          /* prevent stretching */
+  align-self: flex-start;          /* don't stretch in column layout */
+  display: inline-flex;
+  align-items: center;
+}
+
+.tax-toggle .form-check {
+  margin: 0;
+}
+
+.tax-toggle .form-check-label {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .tax-toggle .form-check-label {
+    font-size: 12px;
+  }
+}
+
 
 
 
