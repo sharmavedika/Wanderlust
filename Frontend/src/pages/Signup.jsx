@@ -4,152 +4,123 @@ import axiosInstance from "../api/axiosInstance";
 import { useAuth } from "../context/AuthContext";
 
 export default function Signup() {
-
-    const [form, setForm] = useState({
-        username: "",
-        email: "",
-        password: "",
-    });
-
+    const [form, setForm] = useState({ username: "", email: "", password: "" });
     const [error, setError] = useState("");
-
+    const [loading, setLoading] = useState(false);
     const { login } = useAuth();
-
     const navigate = useNavigate();
 
-    // HANDLE INPUT CHANGE
-    const handleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value,
-        });
-    };
+    const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-    // HANDLE SIGNUP
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setLoading(true);
         try {
-
-            const res = await axiosInstance.post(
-                "/auth/signup",
-                form
-            );
-
+            const res = await axiosInstance.post("/auth/signup", form);
             login(res.data.user);
-
             navigate("/");
-
         } catch (err) {
-
-            setError(
-                err.response?.data?.error || "Signup failed!"
-            );
+            setError(err.response?.data?.error || "Signup failed!");
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-        <div className="signup-page">
+        <div className="auth-page">
 
-            <div className="signup-container">
+            {/* Left panel — decorative */}
+            <div className="auth-panel">
+                <div className="auth-panel-inner">
+                    <Link to="/" className="auth-panel-logo">
+                        <i className="fa-regular fa-compass"></i>
+                        wanderlust
+                    </Link>
+                    <h2 className="auth-panel-headline">
+                        Discover your next<br />
+                        <em>great escape.</em>
+                    </h2>
+                    <p className="auth-panel-sub">
+                        Join thousands of travellers exploring the world's most beautiful stays.
+                    </p>
+                    <div className="auth-panel-badges">
+                        {["🏔️ Mountains", "🏰 Castles", "🌊 Beachside", "🔥 Trending"].map(b => (
+                            <span key={b} className="auth-badge">{b}</span>
+                        ))}
+                    </div>
+                </div>
+            </div>
 
-                {/* SIGNUP CARD */}
-                <div className="signup-card">
+            {/* Right panel — form */}
+            <div className="auth-form-side">
+                <div className="auth-card">
 
-                    {/* TITLE */}
-                    <h1 className="signup-title">
-                        Sign Up
-                    </h1>
+                    {/* Mobile logo */}
+                    <Link to="/" className="auth-mobile-logo">
+                        <i className="fa-regular fa-compass"></i>
+                        wanderlust
+                    </Link>
 
-                    {/* ERROR */}
+                    <h1 className="auth-title">Create your account</h1>
+                    <p className="auth-subtitle">Start exploring in seconds.</p>
+
                     {error && (
-                        <div className="alert alert-danger">
-                            {error}
+                        <div className="auth-error">
+                            <i className="fa-solid fa-circle-exclamation"></i> {error}
                         </div>
                     )}
 
-                    {/* FORM */}
-                    <form onSubmit={handleSubmit}>
-
-                        {/* USERNAME */}
-                        <div className="mb-3">
-
-                            <label className="form-label signup-label">
-                                Username
-                            </label>
-
+                    <form onSubmit={handleSubmit} className="auth-form">
+                        <div className="auth-field">
+                            <label className="auth-label">Username</label>
                             <input
                                 type="text"
                                 name="username"
-                                className="form-control signup-input"
-                                placeholder="Enter username"
+                                className="auth-input"
+                                placeholder="e.g. traveller_vedika"
                                 required
                                 value={form.username}
                                 onChange={handleChange}
                             />
                         </div>
 
-                        {/* EMAIL */}
-                        <div className="mb-3">
-
-                            <label className="form-label signup-label">
-                                Email
-                            </label>
-
+                        <div className="auth-field">
+                            <label className="auth-label">Email address</label>
                             <input
                                 type="email"
                                 name="email"
-                                className="form-control signup-input"
-                                placeholder="Enter email"
+                                className="auth-input"
+                                placeholder="you@example.com"
                                 required
                                 value={form.email}
                                 onChange={handleChange}
                             />
                         </div>
 
-                        {/* PASSWORD */}
-                        <div className="mb-4">
-
-                            <label className="form-label signup-label">
-                                Password
-                            </label>
-
+                        <div className="auth-field">
+                            <label className="auth-label">Password</label>
                             <input
                                 type="password"
                                 name="password"
-                                className="form-control signup-input"
-                                placeholder="Enter password"
+                                className="auth-input"
+                                placeholder="Create a strong password"
                                 required
                                 value={form.password}
                                 onChange={handleChange}
                             />
                         </div>
 
-                        {/* BUTTON */}
-                        <button
-                            type="submit"
-                            className="btn btn-success signup-btn"
-                        >
-                            Sign Up
+                        <button type="submit" className="auth-submit-btn" disabled={loading}>
+                            {loading
+                                ? <><i className="fa-solid fa-circle-notch fa-spin"></i> Creating account…</>
+                                : "Create account"}
                         </button>
-
-                        {/* LOGIN LINK */}
-                        <div className="login-section">
-
-                            <p className="login-text">
-                                Already have an account?
-                            </p>
-
-                            <Link
-                                to="/login"
-                                className="login-link"
-                            >
-                                Log in
-                            </Link>
-
-                        </div>
-
                     </form>
+
+                    <p className="auth-switch">
+                        Already have an account?{" "}
+                        <Link to="/login" className="auth-switch-link">Log in</Link>
+                    </p>
                 </div>
             </div>
         </div>
